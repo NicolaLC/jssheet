@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+
+    <title>JsonSheet</title>
+    <meta name="description" content="Sniffet Test" />
+    <meta name="author" content="nicolacastellanidev@gmail.com" />
+    <link href="https://fonts.googleapis.com/css?family=B612+Mono:400,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="dist.css" />
+  </head>
+
+  <body>
+    <div class="Header">
+      <h1>JSONSheet</h1>
+      <div class="Menu">
+        <a href="http://nicawd.herokuapp.com" target="_blank">Visit my website</a>
+        <a href="https://github.com/NicolaLC/js-sheet" target="_blank">GitHub</a>
+      </div>
+    </div>
+    <div class="Body">
+      <div class="Title">Create Fast - Reusable css stylesheets!</div>
+      <h3>
+        What is?
+      </h3>
+      <p>
+        It's a new way to write css using Javascript!
+      </p>
+      <h3>
+        How does it works?
+      </h3>
+      <p>
+        Starting from a <b>:root</b> element you can define css properties and
+        childrens:
+      </p>
+      <pre>
+      <code>
+const <b>stylesheets</b> = {
+  <b>root</b>: {
+    selector: "body",
+    background: colors.primary,
+    fontFamily: fonts.main,
+    padding: 0,
+    margin: 0,
+    overflowX: "hidden",
+    childrens: [header, body, ...generics]
+  }
+};</code>
+    </pre>
+    </div>
+    <script src="/reload/reload.js"></script>
+  </body>
+
+</html>
