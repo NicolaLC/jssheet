@@ -1,0 +1,544 @@
+/* CORE GAME STYLE */
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap');
+@font-face {
+  font-family: 'DURA3D';
+  src: url('/assets/fonts/DURA3D.ttf'); /* IE9 Compat Modes */
+}
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  font-size: 100%;
+  font-family: 'Press Start 2P', cursive;
+  overflow: hidden;
+  background-image: linear-gradient(
+    to bottom,
+    #010812,
+    #071627,
+    #03203e,
+    #002955,
+    #05326d
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 2rem;
+  color: lawngreen;
+}
+
+h1 b {
+  color: greenyellow;
+}
+
+#GameWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  flex-direction: column;
+}
+
+.HomeMenu {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 1rem;
+  z-index: 10002;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  flex-direction: column;
+}
+
+.HomeMenu .Title {
+  font-size: 8rem;
+  color: #54a0ff;
+  font-family: 'Share Tech Mono', monospace;
+  animation: scale-in-center-translated 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation-delay: 3s;
+  text-shadow: 0px -5px 0px #341f97;
+}
+
+.HomeMenu .Menu {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #00d2d3;
+  font-size: 3rem;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.HomeMenu .Menu p {
+  margin: 1rem 0;
+}
+
+.HomeMenu .Tip {
+  color: white;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  text-align: center;
+  animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: 4.5s;
+  margin-top: 4rem;
+}
+
+.InGame .HomeMenu {
+  animation: home-menu-start-game 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.UI {
+  display: none;
+  flex-direction: column;
+  place-content: space-between;
+  align-items: center;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.UI .Bottom {
+  transition: opacity 0.25s ease-out;
+}
+
+.UI .ProgressBar {
+  width: 200px;
+  height: 20px;
+  background-color: white;
+  border-radius: 15px;
+  color: #071627;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+.UI .ProgressBar b {
+  z-index: 1001;
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  font-size: 0.75rem;
+}
+
+.ProgressBar .Bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 200%;
+  background-color: #54a0ff;
+  border-radius: 0;
+  color: #071627;
+  font-weight: bold;
+  z-index: 0;
+  transition: width 0.25s ease-in;
+}
+
+.ProgressBar .Bar.Red {
+  background-color: #ee5253;
+}
+
+.ProgressBar.Reverse b {
+  right: 5px;
+  left: auto;
+}
+
+.ProgressBar.Reverse .Bar {
+  right: 0;
+  left: auto;
+}
+
+.UI .BottomLeftUI {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: url('../assets/images/ui_bottom.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: calc(484px - 1rem);
+  height: calc(167.2px - 3rem);
+  display: flex;
+  place-content: flex-start;
+  place-items: flex-start;
+  flex-direction: column;
+  padding-top: 3rem;
+  padding-left: 1rem;
+}
+
+.UI .BottomRightUI {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: url('../assets/images/ui_bottom_right.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: calc(484px - 1rem);
+  height: calc(167.2px - 3rem);
+  display: flex;
+  place-content: flex-start;
+  place-items: flex-end;
+  flex-direction: column;
+  padding-top: 3rem;
+  padding-right: 1rem;
+}
+
+.UI .BottomLeftUI #bonusCross {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 100px;
+  top: 0;
+  background: url('../assets/images/BonusCross.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+}
+
+.UI .BottomLeftUI #bonusCross.Active {
+  opacity: 1;
+  animation: vibrate-1 0.25s cubic-bezier(1, 0, 0, 1) infinite both;
+}
+
+.UI .BottomLeftUI #bonus2x {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  background: url('../assets/images/Bonus2X.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+}
+
+.UI .BottomLeftUI #bonus2x.Active {
+  opacity: 1;
+  animation: vibrate-1 0.25s cubic-bezier(1, 0, 0, 1) infinite both;
+}
+
+.UI .Top {
+  display: flex;
+  flex-direction: row;
+  place-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.UI .Bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.UI .LabelValue {
+  color: #54a0ff;
+  font-size: 1.5rem;
+}
+
+.UI .Label {
+  color: #54a0ff;
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
+* + .Label {
+  margin-top: 0.5rem;
+}
+
+.InGame .UI {
+  display: flex;
+}
+
+.HomeMenu .Menu p {
+  cursor: pointer;
+  animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.HomeMenu .Menu p:first-child {
+  animation-delay: 3.5s;
+}
+.HomeMenu .Menu p:last-child {
+  animation-delay: 4s;
+}
+
+.GameScene {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 1rem;
+  z-index: 10001;
+  animation: slide-in-blurred-top 5s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.InGame .GameScene {
+  animation: game-scene-start-game 3s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.GameScene canvas {
+  width: 100%;
+  height: 100%;
+  z-index: 10001;
+}
+
+.GameScene .Player {
+  position: absolute;
+  bottom: 1rem;
+  transform: rotateZ(-45deg);
+  font-size: 2rem;
+  user-select: none;
+  z-index: 10;
+  /** let's add some cool transition effect */
+  transition: all 0.1s ease-out;
+  width: 3rem;
+  height: 3rem;
+}
+
+.Player:before {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '🚀';
+  transform: rotateZ(-45deg);
+}
+
+.GameScene .Player.Damaged {
+  border: 1px solid red;
+}
+
+.GameScene .Bullet {
+  width: 5px;
+  height: 10px;
+  background: yellow;
+  box-shadow: 0 2px 10px 0 red;
+  position: absolute;
+  z-index: 11;
+}
+
+.GameScene .EnemiesBullet {
+  width: 5px;
+  height: 20px;
+  background: red;
+  box-shadow: 0 2px 10px 0 orange;
+  position: absolute;
+}
+
+.GameScene .Bullet.Shooted {
+  box-shadow: 0 2px 10px 0 red;
+}
+
+.GameScene .Earth {
+  display: block;
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  left: calc(50% - 250px);
+  bottom: -350px;
+  z-index: -1;
+  background: url('../assets/images/planet-earth.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: spin-right 200s linear infinite;
+}
+
+.EarthOrbit {
+  display: block;
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  border: 2px #4a437f dashed;
+  border-radius: 100%;
+  transform-origin: 50% 50%;
+  animation: spin-right5s linear infinite;
+  opacity: 0.5;
+}
+
+.EarthOrbit .Moon {
+  transform: rotate(0deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 100%;
+  background: url('../assets/images/moon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.Shake {
+  opacity: 1 !important;
+  animation: vibrate-1 0.3s linear infinite both;
+}
+
+@keyframes spin-right {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2019-10-4 17:15:27
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation vibrate-1
+ * ----------------------------------------
+ */
+@keyframes vibrate-1 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2019-10-10 13:49:23
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation slide-in-blurred-bottom
+ * ----------------------------------------
+ */
+@keyframes slide-in-blurred-top {
+  0% {
+    transform: translateY(-1000px);
+    transform-origin: 50% 100%;
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-30%) scaleY(0.5) scaleX(0.5);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 0.5;
+  }
+}
+
+@keyframes game-scene-start-game {
+  0% {
+    transform: translateY(-60%) scaleY(0.5) scaleX(0.5);
+    transform-origin: 50% 50%;
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2019-10-10 14:11:52
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation scale-in-center
+ * ----------------------------------------
+ */
+@keyframes scale-in-center-translated {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  75% {
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    transform: scale(1) translateY(-100%);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes home-menu-start-game {
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2019-10-11 17:53:24
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation vibrate-1
+ * ----------------------------------------
+ */
+@keyframes vibrate-1 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}

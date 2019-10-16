@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Space Invaders in JavaScript!</title>
+  <meta name="description" content="Space Invaders with Javascript!">
+  <meta name="author" content="Nicola Castellani">
+
+  <link rel="stylesheet" href="gameStyles/game.css">
+</head>
+
+<body>
+  <div id="GameWrapper">
+    <div class="HomeMenu">
+      <div class="Title">
+        Space Invaders
+      </div>
+      <div class="Menu">
+        <p id="play">PLAY</p>
+        <p>CREDITS</p>
+      </div>
+      <div class="Tip">
+        Use <b>A</b> and <b>D</b> keys to move <b>LEFT</b> and <b>RIGHT</b>.<br>
+        Use <b>W</b> to <b>SHOOT</b>.<br>
+        Remember, you have a <b>SHIELD</b> wich protects you from damages, when it's over your <b>SpaceShip</b> will be
+        damaged, wait 5s to restore your shield.<br>
+      </div>
+    </div>
+    <div class="UI">
+      <div class="Top"></div>
+      <div class="Bottom">
+        <div class="BottomLeftUI">
+          <div class="Label">LEVEL</div>
+          <div id="levelLabel" class="LabelValue">TEST</div>
+          <div class="Label">SCORE</div>
+          <div id="scoreLabel" class="LabelValue">0</div>
+          <div id="bonusCross"></div>
+          <div id="bonus2x"></div>
+        </div>
+        <div class="BottomRightUI">
+          <div class="Label">SHIELDS</div>
+          <div id="Shield" class="ProgressBar Reverse">
+            <div class="Bar" style="width: 100%"></div>
+            <b>[100%]</b>
+          </div>
+          <div class="Label">LIFE</div>
+          <div id="Life" class="ProgressBar Reverse">
+            <div class="Bar Red" style="width: 100%"></div>
+            <b>[100%]</b>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="GameScene">
+      <div class="Earth">
+        <div class="EarthOrbit">
+          <div class="Moon"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/gl-matrix@3.0.0/gl-matrix-min.js"></script>
+  <script src="bundle.js"></script>
+  <script src="/reload/reload.js"></script>
+</body>
+
+</html>
