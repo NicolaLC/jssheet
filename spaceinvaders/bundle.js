@@ -51140,7 +51140,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = 
         __extends(Player, _super);
         function Player(name) {
             var _this = _super.call(this, name, {
-                images: ['assets/images/SpaceShip.svg'],
+                images: ['assets/images/SpaceShip.png'],
             }, {
                 position: new three_1.Vector3(0, -document.body.clientHeight / 2 + 150, 0),
                 rotation: new three_1.Vector3(0, 0, 0),
